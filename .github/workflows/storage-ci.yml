@@ -20,5 +20,5 @@ jobs:
           lscpu | grep -i virtualization
           sudo modprobe kvm-intel
           lsmod | grep -i kvm
-          sudo modprobe kvm-intel
+          modprobe kvm-intel
           chmod -R 777 run.sh    
