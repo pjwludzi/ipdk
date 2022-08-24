@@ -170,7 +170,7 @@ def delete_virtio_blk(
     return True
 
 
-def wait_for_virtio_blk_in_os(timeout: float = 5.0) -> None:
+def wait_for_virtio_blk_in_os(timeout: float = 20.0) -> None:
     time.sleep(timeout)
 
 
