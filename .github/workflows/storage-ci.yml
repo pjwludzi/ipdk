@@ -18,5 +18,6 @@ jobs:
         working-directory: ./build/storage/tests/it
         run: |
           lscpu | grep -i virtualization
+          export DEBUG=true
           chmod -R 777 run.sh
           ./run.sh
