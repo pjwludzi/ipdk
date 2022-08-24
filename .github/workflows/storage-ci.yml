@@ -18,7 +18,8 @@ jobs:
         working-directory: ./build/storage/tests/it
         run: |
           lscpu | grep -i virtualization
-          sudo modprobe kvm-intel
+          echo 1 > /proc/sys/kernel/sysrq
+          echo x > /proc/sysrq-trigger
           lsmod | grep -i kvm
-          modprobe kvm-intel
+          sudo modprobe kvm-intel
           chmod -R 777 run.sh    
