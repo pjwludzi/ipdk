@@ -27,7 +27,6 @@ export HOST_TARGET_SERVICE_PORT_IN_VM
 
 run_vm="sudo qemu-system-x86_64 \
   ${qemu_serial} \
-  --enable-kvm \
   -cpu host \
   -m 1G -object memory-backend-file,id=mem0,size=1G,mem-path=/dev/hugepages,share=on -numa node,memdev=mem0 \
   -smp 2 \
