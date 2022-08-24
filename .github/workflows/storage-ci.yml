@@ -1,21 +1,23 @@
-name: Storage Unit Tests Integration
-
+name: Storage Unit and Integration test
 on:
+  push:
+    branches:
+    - main
+    - storage_integration_test
   pull_request:
     branches:
-      - main
-    paths:
-      - 'build/storage/**'
+    - main
 jobs:
   docker:
-    timeout-minutes: 15
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
-      - name: 'Run Storage Unit Tests'
-        working-directory: ./build/storage/tests/ut
+      - name: 'Run Storage Integration Tests'
+        working-directory: ./build/storage/tests/it
         run: |
+          lscpu | grep -i virtualization
+          export DEBUG=true
           chmod -R 777 run.sh
           ./run.sh
